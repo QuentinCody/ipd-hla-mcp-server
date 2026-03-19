@@ -3,8 +3,6 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerQueryData } from "./tools/query-data";
 import { registerGetSchema } from "./tools/get-schema";
 import { registerCodeMode } from "./tools/code-mode";
-import { registerAlleleLookup } from "./tools/allele-lookup";
-import { registerAlleleDetail } from "./tools/allele-detail";
 import { IpdHlaDataDO } from "./do";
 
 export { IpdHlaDataDO };
@@ -22,8 +20,6 @@ export class MyMCP extends McpAgent {
 
     async init() {
         const env = this.env as unknown as IpdHlaEnv;
-        registerAlleleLookup(this.server, env);
-        registerAlleleDetail(this.server, env);
         registerQueryData(this.server, env);
         registerGetSchema(this.server, env);
         registerCodeMode(this.server, env);
