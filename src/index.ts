@@ -13,7 +13,7 @@ interface IpdHlaEnv {
 }
 
 export class MyMCP extends McpAgent {
-    server: any = new McpServer({
+    server = new McpServer({
         name: "ipd-hla",
         version: "0.1.0",
     });

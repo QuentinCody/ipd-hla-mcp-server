@@ -6,7 +6,7 @@ interface QueryEnv {
     IPD_HLA_DATA_DO?: unknown;
 }
 
-export function registerQueryData(server: McpServer, env?: QueryEnv) {
+export function registerQueryData(server: McpServer, env?: QueryEnv): void {
     const handler = createQueryDataHandler("IPD_HLA_DATA_DO", "ipd_hla");
 
     server.registerTool(

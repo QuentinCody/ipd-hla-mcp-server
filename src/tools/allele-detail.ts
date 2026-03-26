@@ -14,7 +14,7 @@ interface AlleleDetailEnv {
     };
 }
 
-export function registerAlleleDetail(server: McpServer, env?: AlleleDetailEnv) {
+export function registerAlleleDetail(server: McpServer, env?: AlleleDetailEnv): void {
     server.registerTool(
         "ipd_hla_allele_detail",
         {
@@ -45,7 +45,7 @@ export function registerAlleleDetail(server: McpServer, env?: AlleleDetailEnv) {
                 if (shouldStage(responseSize) && runtimeEnv?.IPD_HLA_DATA_DO) {
                     const staged = await stageToDoAndRespond(
                         data,
-                        runtimeEnv.IPD_HLA_DATA_DO as any,
+                        runtimeEnv.IPD_HLA_DATA_DO as DurableObjectNamespace,
                         "allele_detail",
                         undefined,
                         undefined,

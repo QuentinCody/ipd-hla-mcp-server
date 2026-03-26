@@ -14,7 +14,7 @@ interface AlleleLookupEnv {
     };
 }
 
-export function registerAlleleLookup(server: McpServer, env?: AlleleLookupEnv) {
+export function registerAlleleLookup(server: McpServer, env?: AlleleLookupEnv): void {
     server.registerTool(
         "ipd_hla_allele_lookup",
         {
@@ -63,7 +63,7 @@ export function registerAlleleLookup(server: McpServer, env?: AlleleLookupEnv) {
                 if (shouldStage(responseSize) && runtimeEnv?.IPD_HLA_DATA_DO) {
                     const staged = await stageToDoAndRespond(
                         alleles,
-                        runtimeEnv.IPD_HLA_DATA_DO as any,
+                        runtimeEnv.IPD_HLA_DATA_DO as DurableObjectNamespace,
                         "alleles",
                         undefined,
                         undefined,
@@ -86,7 +86,7 @@ export function registerAlleleLookup(server: McpServer, env?: AlleleLookupEnv) {
                     {
                         alleles: alleles,
                         total: Array.isArray(alleles) ? alleles.length : undefined,
-                        cursor: typeof data === "object" && data !== null && "cursor" in data ? (data as any).cursor : undefined,
+                        cursor: typeof data === "object" && data !== null && "cursor" in data ? (data as Record<string, unknown>).cursor : undefined,
                     },
                     { meta: { fetched_at: new Date().toISOString() } },
                 );
