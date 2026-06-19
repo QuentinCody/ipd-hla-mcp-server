@@ -68,7 +68,7 @@ export function registerAlleleLookup(server: McpServer, env?: AlleleLookupEnv): 
                         undefined,
                         undefined,
                         "ipd_hla",
-                        (extra as { sessionId?: string })?.sessionId,
+                        (extra as Record<string, unknown>),
                     );
                     return createCodeModeResponse(
                         {

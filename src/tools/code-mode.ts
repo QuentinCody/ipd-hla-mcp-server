@@ -23,6 +23,8 @@ export function registerCodeMode(
 
     const executeTool = createExecuteTool({
         prefix: "ipd_hla",
+        // Verifiable provenance: ipd_hla_execute results carry a _meta.citation.
+        source: { id: "ipd_hla", name: "IPD-IMGT/HLA", url: "https://www.ebi.ac.uk/ipd/imgt/hla" },
         catalog: ipdHlaCatalog,
         apiFetch,
         doNamespace: env.IPD_HLA_DATA_DO,

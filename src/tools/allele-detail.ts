@@ -50,7 +50,7 @@ export function registerAlleleDetail(server: McpServer, env?: AlleleDetailEnv): 
                         undefined,
                         undefined,
                         "ipd_hla",
-                        (extra as { sessionId?: string })?.sessionId,
+                        (extra as Record<string, unknown>),
                     );
                     return createCodeModeResponse(
                         {
