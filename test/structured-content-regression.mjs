@@ -44,7 +44,7 @@ assert(alleleDetail.includes("createCodeModeError"), "allele-detail.ts includes 
 // Index exports
 const index = readSrc("src/index.ts");
 assert(index.includes("IpdHlaDataDO"), "index.ts exports IpdHlaDataDO");
-assert(index.includes("McpAgent"), "index.ts uses McpAgent");
+assert(index.includes("StatelessMcpWorker"), "index.ts uses StatelessMcpWorker");
 
 console.log(`\n  Total: ${total} | ${GREEN}Passed: ${passed}${RESET} | ${failed > 0 ? RED : ""}Failed: ${failed}${RESET}\n`);
 
